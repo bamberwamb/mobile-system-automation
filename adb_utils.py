@@ -16,11 +16,11 @@ def get_battery_temperature():
 
 def get_network_signal_strength():
     """Gets Wi-Fi RSSI (Signal Strength)"""
-    # Ask for the whole wifi log without grep, making it safer across operating systems
+    # ask for the whole wifi log without grep, making it safer across operating systems
     output = run_adb_command("shell dumpsys wifi")
     
-    # (?i) makes it case-insensitive. 
-    # [=:\s]* means it will match "rssi=-50", "RSSI: -50", "mRssi -50", etc.
+    # (?i) makes it case-insensitive
+    # [=:\s]* means it will match "rssi=-50", "RSSI: -50", "mRssi -50", etc
     match = re.search(r'(?i)rssi[=:\s]*(-?\d+)', output)
     
     if match:
