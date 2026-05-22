@@ -16,4 +16,4 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Run Tests on Physical Hardware (HIL)
-      run: pytest -m test_vitals.py -v -s
+      run: python -m pytest test_vitals.py -v -s
