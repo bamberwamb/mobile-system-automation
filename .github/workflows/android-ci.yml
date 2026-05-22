@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: macos-13 
+    runs-on: macos-latest 
     
     steps:
     - name: Checkout Code
@@ -40,8 +40,8 @@ jobs:
     - name: Run Android Emulator and Tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: 29
+        api-level: 30
         target: default
-        arch: x86_64
+        arch: arm64-v8a
         profile: Nexus 6
         script: pytest test_vitals.py -v -s
